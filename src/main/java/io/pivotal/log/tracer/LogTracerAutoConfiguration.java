@@ -17,16 +17,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties(LogTracerConfigProperties.class)
 public class LogTracerAutoConfiguration {
-	
+
 	@Autowired
 	private LogTracerConfigProperties logTracerConfigProperties;
 
-
 	@Bean
 	public CustomizableTraceInterceptor customizableTraceInterceptor() {
-
-		// Turn on trace logging for interceptor
-		System.setProperty("logging.level.org.springframework.aop.interceptor", "TRACE");
 
 		CustomizableTraceInterceptor cti = new CustomizableTraceInterceptor();
 		cti.setEnterMessage(">>> Entering method '" + PLACEHOLDER_METHOD_NAME + "(" + PLACEHOLDER_ARGUMENTS
@@ -40,11 +36,11 @@ public class LogTracerAutoConfiguration {
 
 	@Bean
 	public Advisor logTraceAopAdvisor() {
-		final String logTracerPackage = "execution(public * ".concat(logTracerConfigProperties.getLogTracerPackage()).concat("..*.*(..))");
+		final String logTracerPackage = "execution(public * ".concat(logTracerConfigProperties.getBasePackage())
+				.concat("..*.*(..))");
 		AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
 		pointcut.setExpression(logTracerPackage);
 		return new DefaultPointcutAdvisor(pointcut, customizableTraceInterceptor());
 	}
 
-	
 }

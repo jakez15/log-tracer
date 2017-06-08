@@ -9,13 +9,13 @@ import org.springframework.validation.annotation.Validated;
 public class LogTracerConfigProperties {
 
 	@NotBlank
-	private String logTracerPackage;
+	private String basePackage;
 
-	public String getLogTracerPackage() {
-		return logTracerPackage;
+	public String getBasePackage() {
+		return basePackage;
 	}
 
-	public void setLogTracerPackage(String logTracerPackage) {
-		this.logTracerPackage = logTracerPackage;
+	public void setBasePackage(String basePackage) {
+		this.basePackage = basePackage;
 	}
 }
