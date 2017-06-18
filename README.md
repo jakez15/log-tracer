@@ -7,7 +7,7 @@
 ```java
 @EnableLogTracer(profiles={local,development,test})
 ```
-3. Add comma seperated list of packages to wrap with log tracer:
+3. Add property with comma seperated list of packages to wrap with log tracer:
 ```
 logtracer.package=io.pivotal.proxy,io.pivotal.text.controller
 ```
