@@ -6,16 +6,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import org.springframework.context.annotation.Import;
-
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Import(LogTracerImportSelector.class)
-public @interface EnableLogTracer {
-
-	String[] profiles() default "";
-
-	String[] packages() default "";
+public @interface LogTracer {
 
 }

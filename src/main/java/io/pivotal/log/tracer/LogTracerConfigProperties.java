@@ -1,21 +1,21 @@
 package io.pivotal.log.tracer;
 
-import org.hibernate.validator.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.validation.annotation.Validated;
 
 @ConfigurationProperties(prefix = "logtracer")
 @Validated
 public class LogTracerConfigProperties {
+	@NotNull
+	private String[] packages;
 
-	@NotBlank
-	private String basePackage;
-
-	public String getBasePackage() {
-		return basePackage;
+	public String[] getPackages() {
+		return packages;
 	}
 
-	public void setBasePackage(String basePackage) {
-		this.basePackage = basePackage;
+	public void setBasePackage(String[] packages) {
+		this.packages = packages;
 	}
 }
