@@ -18,3 +18,10 @@ logtracer.package=io.pivotal.proxy,io.pivotal.text.controller
 public void logMe(){...}
 ```
 
+## Example of Logged Output
+```
+2017-06-17 22:24:56.479 TRACE 29914 --- [nio-8080-exec-2] o.s.a.i.CustomizableTraceInterceptor     : >>> Entering method 'fakeAnnotateMethod()' of class [io.pivotal.annotation.AnnotationController]
+2017-06-17 22:24:56.484 TRACE 29914 --- [nio-8080-exec-2] o.s.a.i.CustomizableTraceInterceptor     : <<< Exiting  method 'fakeAnnotateMethod()' of class [io.pivotal.annotation.AnnotationController] took 5ms.
+```
+
+
