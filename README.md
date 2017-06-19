@@ -4,15 +4,15 @@ Provide an easy to use metrics logger with the ability to target specific spring
 
 ## Usage
 1. Add dependency
-2. Update the main application class to include:
+2. Update the main application class to include the `@EnableLogTracer` annotation. The `@EnableLogTracer` takes a comma separated list of profiles that the log tracer will be enabled for:
 ```java
 @EnableLogTracer(profiles={local,development,test})
 ```
-3. Add property with comma seperated list of packages to wrap with log tracer:
+3. Add required `logtracer.package` property with comma seperated list of packages to wrap with the log tracer:
 ```
 logtracer.package=io.pivotal.proxy,io.pivotal.text.controller
 ```
-4. To annotate a specific method:
+4. Im additio to wrapping enitre packages with the log tracer you can annotate specific method's with `@LogTracer`:
 ```java
 @LogTracer
 public void logMe(){...}
