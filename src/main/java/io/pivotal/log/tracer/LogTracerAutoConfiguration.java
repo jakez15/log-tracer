@@ -23,7 +23,6 @@ public class LogTracerAutoConfiguration {
 
 	@Bean
 	CustomizableTraceInterceptor customizableTraceInterceptor() {
-
 		CustomizableTraceInterceptor cti = new CustomizableTraceInterceptor();
 		cti.setEnterMessage(">>> Entering method '" + PLACEHOLDER_METHOD_NAME + "(" + PLACEHOLDER_ARGUMENTS
 				+ ")' of class [" + PLACEHOLDER_TARGET_CLASS_NAME + "]");
@@ -35,7 +34,7 @@ public class LogTracerAutoConfiguration {
 	}
 
 	@Bean
-	Advisor logTraceAopAdvisor() {
+	Advisor logTraceAopAdvisor(CustomizableTraceInterceptor cti) {
 		String[] pointCutArr = logTracerConfigProperties.getPackages();
 		String pointCutPackages = "";
 		for (int i = 0; i < pointCutArr.length; i++) {
@@ -47,15 +46,15 @@ public class LogTracerAutoConfiguration {
 		}
 		AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
 		pointcut.setExpression(pointCutPackages);
-		return new DefaultPointcutAdvisor(pointcut, customizableTraceInterceptor());
+		return new DefaultPointcutAdvisor(pointcut, cti);
 	}
 
 	@Bean
-	Advisor logTraceAopAdvisorAnnotation() {
+	Advisor logTraceAopAdvisorAnnotation(CustomizableTraceInterceptor cti) {
 		final String annotationPointCut = "@annotation(io.pivotal.log.tracer.LogTracer)";
 		AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
 		pointcut.setExpression(annotationPointCut);
-		return new DefaultPointcutAdvisor(pointcut, customizableTraceInterceptor());
+		return new DefaultPointcutAdvisor(pointcut, cti);
 	}
 
 }

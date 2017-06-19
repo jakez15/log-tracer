@@ -4,7 +4,7 @@ Provide an easy to use metrics logger with the ability to target specific spring
 
 ## Usage
 1. Add dependency
-2. Update the main application class to include the `@EnableLogTracer` annotation. The `@EnableLogTracer` annotations takes a comma separated list of profiles that the log tracer will be enabled for:
+2. Update the main application class to include the `@EnableLogTracer` annotation. The `@EnableLogTracer` annotations takes a comma seperated list of profiles that the log tracer will be enabled for:
 ```java
 @EnableLogTracer(profiles={local,development,test})
 ```
