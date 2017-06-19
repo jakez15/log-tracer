@@ -16,6 +16,4 @@ public @interface EnableLogTracer {
 
 	String[] profiles() default "";
 
-	String[] packages() default "";
-
 }
