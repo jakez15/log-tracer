@@ -8,11 +8,11 @@ Provide a lightweight and easy to use performance metrics logger with the abilit
 ```java
 @EnableLogTracer(profiles={local,development,test})
 ```
-3. Add the required `logtracer.package` property with comma seperated list of packages to wrap with the log tracer:
+3. Add the required `logtracer.package` property with comma separated list of packages to wrap with the log tracer:
 ```
 logtracer.package=io.pivotal.proxy,io.pivotal.text.controller
 ```
-4. In addition to wrapping enitre packages with the log tracer you can annotate specific method's with `@LogTracer`:
+4. In addition to wrapping packages with the log tracer, you can annotate specific method's with `@LogTracer`:
 ```java
 @LogTracer
 public void logMe(){...}
