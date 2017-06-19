@@ -1,6 +1,6 @@
 # log-tracer
 ## Purpose
-Provide an easy to use metrics logger with the ability to target specific spring profiles, project packages, and specific methods.
+Provide an easy to use method execution metrics logger with the ability to target specific spring profiles, project packages, and methods.
 
 ## Usage
 1. Add dependency
