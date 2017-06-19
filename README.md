@@ -12,7 +12,7 @@ Provide an easy to use method execution metrics logger with the ability to targe
 ```
 logtracer.package=io.pivotal.proxy,io.pivotal.text.controller
 ```
-4. In addition to wrapping enitre packages with the log tracer you can annotate specific method's with `@LogTracer`:
+4. In addition to wrapping packages with the log tracer, you can annotate specific method's with `@LogTracer`:
 ```java
 @LogTracer
 public void logMe(){...}
