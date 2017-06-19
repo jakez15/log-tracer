@@ -17,13 +17,13 @@ public class LogTracerImportSelector implements ImportSelector, EnvironmentAware
 	@Override
 	public String[] selectImports(AnnotationMetadata metadata) {
 		String[] imports = new String[0];
-		
+
 		AnnotationAttributes attributes = AnnotationAttributes
 				.fromMap(metadata.getAnnotationAttributes("io.pivotal.log.tracer.EnableLogTracer", true));
 
 		String[] annotationProfiles = attributes.getStringArray("profiles");
 		String[] activeProfiles = this.environment.getActiveProfiles();
-		
+
 		for (int i = 0; i < activeProfiles.length; i++) {
 			for (int j = 0; j < annotationProfiles.length; j++) {
 				if (activeProfiles[i].equals(annotationProfiles[j])) {

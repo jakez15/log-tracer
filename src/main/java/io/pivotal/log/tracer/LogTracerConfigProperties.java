@@ -15,7 +15,7 @@ public class LogTracerConfigProperties {
 		return packages;
 	}
 
-	public void setBasePackage(String[] packages) {
+	public void setPackage(String[] packages) {
 		this.packages = packages;
 	}
 }
