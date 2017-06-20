@@ -7,11 +7,17 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Profile;
 
+/**
+ * Convenience annotation to enable auto-configuration of {@link CustomizableTraceInterceptor} based on the user provided spring {@link Profile}.  
+ * 
+ * @author jzingler
+ */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Import(LogTracerImportSelector.class)
+@Import(LogTracerImportSelectorTest.class)
 public @interface EnableLogTracer {
 
 	String[] profiles() default "";

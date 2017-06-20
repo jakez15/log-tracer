@@ -1,11 +1,18 @@
 package io.pivotal.log.tracer;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.EnvironmentAware;
+import org.springframework.context.annotation.DeferredImportSelector;
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.env.Environment;
 import org.springframework.core.type.AnnotationMetadata;
 
+/**
+ * {@link DeferredImportSelector} to handle {@link EnableAutoConfiguration auto-configuration} of {@link LogTracerAutoConfiguration}.
+ * 
+ * @author jzingler
+ */
 public class LogTracerImportSelector implements ImportSelector, EnvironmentAware {
 
 	private Environment environment;

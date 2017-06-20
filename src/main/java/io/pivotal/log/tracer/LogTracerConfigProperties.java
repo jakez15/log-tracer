@@ -1,13 +1,15 @@
 package io.pivotal.log.tracer;
 
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.validation.annotation.Validated;
 
+/**
+ * Configuration properties for {@link EnableLogTracer} for user-defined packages 
+ *  
+ * @author jzingler
+ */
 @ConfigurationProperties(prefix = "logtracer")
-@Validated
 public class LogTracerConfigProperties {
-	@NotEmpty
+	
 	private String[] packages;
 
 	public String[] getPackages() {
