@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Profile;
 /**
  * Convenience annotation to add a {@link CustomizableTraceInterceptor} to a specific method. 
  * 
- *  Dependent on {@link EnableLogTracer} enabled for an active spring {@link Profile}
+ * Dependent on {@link EnableLogTracer} enabled for an active spring {@link Profile}
  * 
  * @author jzingler
  */
