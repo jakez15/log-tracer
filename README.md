@@ -1,6 +1,9 @@
-# log-tracer
+
 ## Purpose
-Provide a lightweight and easy to use performance metrics logger with the ability to target specific spring profiles, project packages, and methods.
+Provide a lightweight and easy to use performance metrics logger with the ability to wrap methods with custom toggles for spring profiles, AspectJ expressions, and methods. The logger is extremely useful for pinpointing performance bottlenecks and providing a common approach to logging throughout an application ecosystem.
+
+## Prerequisites
+1. Spring Boot
 
 ## Usage
 1. Add dependency
