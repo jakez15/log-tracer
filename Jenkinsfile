@@ -10,13 +10,19 @@ pipeline {
                 sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
+                    'mvn --version'
                 '''
             }
         }
         
         stage('build') {
             steps {
-                sh 'mvn --version'
+                sh 'mvn -B install'
+            }
+            post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml'       
+                }
             }
         }
     }
