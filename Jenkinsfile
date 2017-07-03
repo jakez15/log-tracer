@@ -9,9 +9,14 @@ pipeline {
             steps {
                 sh '''
                     echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                    echo "mvn --version"
+                    echo "M2_HOME = ${M2_HOME}"                    
                 '''
+            }
+        }
+        
+        stage('check-mvn-version') {
+            steps {
+                sh 'mvn --version'
             }
         }
         
